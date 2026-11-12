@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 PROJECTS_APPS = [
+    'dashboard',
     'plants',
     'cares',
     'plant_collections'

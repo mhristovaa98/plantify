@@ -1,0 +1,41 @@
+{% extends 'common/base.html' %}
+
+{% block title %} Plants {% endblock %}
+
+{% block content %}
+    <section class="welcome-row">
+        <div><p class="eyebrow">A GROWING LITTLE WORLD</p>
+            <h1>Your plants<span class="heading-period">.</span></h1>
+            <p class="intro">Every leaf tells a story. Keep yours growing.</p></div>
+        <a class="button button-primary" href="{% url 'plants:create' %}"><span>＋</span> Add a plant</a></section>
+    <section class="filter-bar">
+        <div class="search-box"><span>⌕</span><input type="search" aria-label="Search plants"
+                                                     placeholder="Search your plants..."></div>
+        <div class="filter-controls">
+            <button class="filter-button">All plants <span>⌄</span></button>
+            <button class="filter-button">Sort: Recently added <span>⌄</span></button>
+            <button class="view-toggle active-view" aria-label="Grid view">▦</button>
+            <button class="view-toggle" aria-label="List view">☷</button>
+        </div>
+    </section>
+    <div class="list-summary"><span><strong>12 plants</strong> in your collection</span><span
+            class="summary-legend"><i class="health-dot"></i> Thriving <i class="health-dot health-warm"></i> Needs care</span>
+    </div>
+    <section class="plant-grid plant-grid-large">
+    {% for plant in plants %}
+        <article class="plant-card"><a class="plant-photo photo-monstera" href="plant-details.html"><span
+                class="photo-badge">THRIVING</span></a>
+            <div class="plant-card-body">
+                <div><h3>{{ plant.scientific_name }}</h3>
+                    <p>Living room · 2 years</p></div>
+                <a class="plant-more" href="plant-edit.html" aria-label="Edit Monstera">···</a>
+                <div class="plant-meta"><span>◉ {{ plant.watering_interval }} days</span><span class="health-dot"></span></div>
+            </div>
+        </article>
+
+        {% empty %}
+        <p>No plant has been entered yet!</p>
+   {% endfor %}
+    </section>
+{% endblock %}
+

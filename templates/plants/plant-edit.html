@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Monstera | Verdant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="app-shell">
+    <aside class="sidebar"><a class="brand" href="../dashboard/dashboard.html"><span class="brand-mark">v</span><span>verdant<span
+            class="brand-dot">.</span><small>YOUR PLANT JOURNAL</small></span></a>
+        <p class="nav-label">WORKSPACE</p>
+        <nav class="main-nav" aria-label="Main navigation"><a class="nav-link" href="../dashboard/dashboard.html"><span
+                class="nav-icon">⌂</span>Dashboard</a><a class="nav-link active" href="plant-list.html"><span
+                class="nav-icon">♧</span>Plants<span class="nav-count">12</span></a><a class="nav-link"
+                                                                                       href="#care-logs"><span
+                class="nav-icon">◷</span>Care Logs</a><a class="nav-link" href="#collections"><span
+                class="nav-icon">▤</span>Collections</a></nav>
+        <div class="sidebar-note"><span class="note-sprout">✳</span>
+            <p>“To plant a garden is to believe in tomorrow.”</p><small>— AUDREY HEPBURN</small></div>
+        <div class="profile">
+            <div class="avatar">JM</div>
+            <div><strong>Jamie Morgan</strong><small>Plant parent</small></div>
+            <span class="profile-more">···</span></div>
+    </aside>
+    <main class="main-content">
+        <header class="topbar">
+            <div class="breadcrumb"><a href="plant-list.html">PLANTS</a> <span>/</span> <strong>EDIT PLANT</strong>
+            </div>
+            <div class="top-actions">
+                <div class="avatar avatar-small">JM</div>
+            </div>
+        </header>
+        <a class="back-link" href="plant-details.html">← Back to Monstera Deliciosa</a>
+        <section class="form-heading"><p class="eyebrow">A LITTLE UPDATE</p>
+            <h1>Keep your plant details fresh<span class="heading-period">.</span></h1>
+            <p class="intro">Make a change whenever your plant’s routine or home changes.</p></section>
+        <div class="form-layout">
+            <form class="panel plant-form">
+                <div class="form-section-title"><span class="form-step">✳</span>
+                    <div><h2>Monstera Deliciosa</h2>
+                        <p>Last updated May 12, 2022.</p></div>
+                </div>
+                <label class="field-label" for="plant-name">Plant name <span>*</span></label><input id="plant-name"
+                                                                                                    type="text"
+                                                                                                    value="Monstera Deliciosa">
+                <div class="field-row">
+                    <div><label class="field-label" for="species">Species</label><input id="species" type="text"
+                                                                                        value="Monstera deliciosa">
+                    </div>
+                    <div><label class="field-label" for="location">Where does it live?</label><input id="location"
+                                                                                                     type="text"
+                                                                                                     value="Living room">
+                    </div>
+                </div>
+                <div class="field-row">
+                    <div><label class="field-label" for="date-added">Date added</label><input id="date-added"
+                                                                                              type="date"
+                                                                                              value="2022-05-12"></div>
+                    <div><label class="field-label" for="watering">Watering frequency</label><select id="watering">
+                        <option selected>Every 7 days</option>
+                        <option>Every few days</option>
+                        <option>Every two weeks</option>
+                        <option>Monthly</option>
+                    </select></div>
+                </div>
+                <label class="field-label" for="notes">A note to remember</label><textarea id="notes" rows="3">New leaf unfurled this week. Loves the corner by the east-facing window.</textarea>
+                <div class="form-actions"><a class="button button-quiet" href="plant-details.html">Cancel</a>
+                    <button class="button button-primary" type="button">Save changes</button>
+                </div>
+            </form>
+            <aside class="form-aside">
+                <div class="form-aside-image"></div>
+                <div class="form-aside-copy"><span class="note-sprout">✳</span>
+                    <h2>Growing at its own pace.</h2>
+                    <p>Your Monstera is thriving. Keep rotating it every so often to help each leaf catch the light.</p>
+                </div>
+            </aside>
+        </div>
+        <footer class="site-footer"><span>Made with care <span
+                class="footer-heart">♥</span> and a little sunlight.</span><span>GROW AT YOUR OWN PACE</span></footer>
+    </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends 'common/base.html' %}
+
+{% block title %} Create Plants {% endblock %}
+
+{% block content %}
+<a class="back-link" href="{% url 'plants:list' %}">← Back to plants</a>
+<section class="form-heading"><p class="eyebrow">MAKE ROOM FOR SOMETHING GREEN</p>
+    <h1>Welcome a new plant<span class="heading-period">.</span></h1>
+    <p class="intro">Add a few details now. You can always update them as your plant grows.</p></section>
+<div class="form-layout">
+    <form class="panel plant-form" method="post">
+
+        {% csrf_token %}
+        {{ form }}
+        
+        <div class="form-actions"><a class="button button-quiet" href="{% url 'plants:list' %}">Cancel</a>
+            <button class="button button-primary" type="submit">＋ Add to my garden</button>
+        </div>
+    </form>
+    <aside class="form-aside">
+        <div class="form-aside-image"></div>
+        <div class="form-aside-copy"><span class="note-sprout">✳</span>
+            <h2>Every plant has a story.</h2>
+            <p>Capture the little details today, and enjoy watching your plant’s story unfold over time.</p>
+        </div>
+    </aside>
+</div>
+{% endblock %}
+

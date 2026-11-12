@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {% include 'common/head.html' %}
+
+<body>
+<div class="app-shell">
+
+    {% include 'common/nav.html' %}
+
+    <main class="main-content">
+
+        {% include 'common/header.html' %}
+
+            {% block content %}
+
+            {% endblock %}
+
+        {% include 'common/footer.html' %}
+
+    </main>
+</div>
+</body>
+</html>
