@@ -9,6 +9,20 @@ class Plant(models.Model):
         MEDIUM = 'Medium',"Medium"
         HARD = 'Hard',"Hard"
 
+    class LocationChoices(models.TextChoices):
+        LIVING_ROOM = 'Living Room',"Living Room"
+        BEDROOM = 'Bedroom',"Bedroom"
+        KITCHEN = 'Kitchen',"Kitchen"
+        BATHROOM = 'Bathroom',"Bathroom"
+        BALCONY = 'Balcony',"Balcony"
+        GARDEN = 'Garden',"Garden"
+
+    class LightRequirementChoices(models.TextChoices):
+        LOW_LIGHT = 'Low Light',"Low Light"
+        MEDIUM_INDIRECT_LIGHT = 'Medium Indirect Light',"Medium Indirect Light"
+        HIGH_INDIRECT_LIGHT = 'High Indirect Light', "High Indirect Light"
+        DIRECT_LIGHT = 'Direct Light',"Direct Light"
+
     scientific_name = models.CharField(
         max_length=150,
         unique=True,
@@ -16,7 +30,6 @@ class Plant(models.Model):
             RegexValidator(
                 regex=r'^[A-Za-zА-Яа-я]+ [A-Za-zА-Яа-я]+$', )]
     )
-
 
     description = models.TextField(
         max_length=500,
@@ -26,6 +39,18 @@ class Plant(models.Model):
     image_url = models.URLField(
         blank=True,
     )
+    location = models.CharField(
+
+        max_length=30,
+        choices=LocationChoices.choices,
+    )
+
+    light_requirement = models.CharField(
+
+        max_length=30,
+        choices=LightRequirementChoices.choices,
+    )
+
 
     watering_interval = models.IntegerField(
         validators=[MinValueValidator(1),

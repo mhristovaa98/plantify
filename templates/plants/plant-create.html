@@ -11,8 +11,53 @@
     <form class="panel plant-form" method="post">
 
         {% csrf_token %}
-        {{ form }}
-        
+        {{ form.scientific_name.label_tag }}
+            {% for error in form.scientific_name.errors %}
+                <p class="field-error">{{ error }}</p>
+            {% endfor %}
+        {{ form.scientific_name }}
+
+        {{ form.description.label_tag }}
+            {% for error in form.description.errors %}
+                <p class="field-error">{{ error }}</p>
+            {% endfor %}
+        {{ form.description }}
+
+        {{ form.image_url.label_tag }}
+            {% for error in form.image_url.errors %}
+                <p class="field-error">{{ error }}</p>
+            {% endfor %}
+        {{ form.image_url }}
+
+        {{ form.location.label_tag }}
+            {% for error in form.location.errors %}
+                <p class="field-error">{{ error }}</p>
+            {% endfor %}
+        {{ form.location }}
+
+        {{ form.light_requirement.label_tag }}
+            {% for error in form.light_requirement.errors %}
+                <p class="field-error">{{ error }}</p>
+            {% endfor %}
+        {{ form.light_requirement }}
+
+
+        {{ form.watering_interval.label_tag }}
+             {% for error in form.watering_interval.errors %}
+                <p class="field-error">{{ error }}</p>
+            {% endfor %}
+        {{ form.watering_interval }}
+
+        {{ form.difficulty.label_tag }}
+        {{ form.difficulty }}
+
+        {{ form.price.label_tag }}
+            {% for error in form.price.errors %}
+                <p class="field-error">{{ error }}</p>
+            {% endfor %}
+        {{ form.price }}
+
+
         <div class="form-actions"><a class="button button-quiet" href="{% url 'plants:list' %}">Cancel</a>
             <button class="button button-primary" type="submit">＋ Add to my garden</button>
         </div>

@@ -23,12 +23,14 @@
     </div>
     <section class="plant-grid plant-grid-large">
     {% for plant in plants %}
-        <article class="plant-card"><a class="plant-photo photo-monstera" href="plant-details.html"><span
+        <article class="plant-card"><a class="plant-photo" href="{% url 'plants:detail' plant.pk %}">
+            <img src="{{ plant.image_url }}" alt="{{ plant.scientific_name }}">
+            <span
                 class="photo-badge">THRIVING</span></a>
             <div class="plant-card-body">
                 <div><h3>{{ plant.scientific_name }}</h3>
-                    <p>Living room · 2 years</p></div>
-                <a class="plant-more" href="plant-edit.html" aria-label="Edit Monstera">···</a>
+                    <p>{{ plant.location }} · 2 years</p></div>
+                <a class="plant-more" href="{% url 'plants:edit' plant.pk %}" aria-label="Edit {{ plant.scientific_name }}">···</a>
                 <div class="plant-meta"><span>◉ {{ plant.watering_interval }} days</span><span class="health-dot"></span></div>
             </div>
         </article>

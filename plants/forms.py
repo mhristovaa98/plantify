@@ -12,19 +12,19 @@ class PlantForm(forms.ModelForm):
             'difficulty',
             'description',
             'price',
-            'watering_interval'
+            'watering_interval',
+            'location',
+            'light_requirement'
         ]
         widgets = {
-            'scientific_name': forms.TextInput(),
+            'scientific_name': forms.TextInput(attrs={'placeholder': 'Enter scientific name, e.g., Helianthus annuus'}),
             'image_url': forms.URLInput(attrs={'placeholder': 'Image URL'}),
-            'watering_interval': forms.NumberInput(),
+            'watering_interval': forms.NumberInput(attrs={'placeholder': 'The interval must be between 1 and 90 days'}),
             'difficulty': forms.Select(),
             'price': forms.NumberInput(),
+            'location': forms.Select(),
+            'light_requirement': forms.Select(),
 
-        }
-        help_texts = {
-            'scientific_name':'Enter scientific name, e.g., Helianthus annuus',
-            'watering_interval':'The interval must be between 1 and 90 days',
         }
         error_messages = {
             'scientific_name': {
@@ -37,6 +37,9 @@ class PlantForm(forms.ModelForm):
         }
         labels = {
             'watering_interval':'Watering interval (days).',
+            'difficulty':'Difficulty to cares',
+            'location': 'Room',
+            'light_requirement': 'Light',
         }
 
 class PlantCreateForm(PlantForm):

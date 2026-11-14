@@ -5,9 +5,9 @@
     <nav class="main-nav" aria-label="Main navigation">
         <a class="nav-link active" href="{% url 'dashboard:home' %}"><span class="nav-icon">⌂</span>Dashboard</a>
         <a class="nav-link" href="{% url 'plants:list' %}"><span class="nav-icon">♧</span>Plants<span
-                class="nav-count">12</span></a>
-        <a class="nav-link" href="#care-logs"><span class="nav-icon">◷</span>Care Logs</a>
-        <a class="nav-link" href="#collections"><span class="nav-icon">▤</span>Collections</a>
+                class="nav-count">{{ total_plants }}</span></a>
+        <a class="nav-link" href="{% url 'cares:list' %}"><span class="nav-icon">◷</span>Care Logs</a>
+        <a class="nav-link" href="{% url 'collections:list' %}"><span class="nav-icon">▤</span>Collections</a>
     </nav>
     <div class="sidebar-note"><span class="note-sprout">✳</span>
         <p>“To plant a garden is to believe in tomorrow.”</p><small>— AUDREY HEPBURN</small></div>
