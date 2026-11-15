@@ -11,7 +11,9 @@ class Collection(models.Model):
         blank=True,
         max_length=300,
     )
-
+    background_image = models.URLField(
+        blank=True,
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     updated_at = models.DateTimeField(auto_now=True)

@@ -33,6 +33,13 @@ class CareLogBaseForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['date_performed'].initial = datetime.date.today()
 
+    def clean_date_performed(self):
+        data = self.cleaned_data['date_performed']
+        if data > datetime.date.today():
+            raise forms.ValidationError('Date cannot be in the future!')
+        return data
+
+
 class CareLogAddForm(CareLogBaseForm):
     ...
 

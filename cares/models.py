@@ -1,5 +1,3 @@
-import datetime
-
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
@@ -21,7 +19,7 @@ class CareLog(models.Model):
 
     date_performed = models.DateField(
         auto_now=False,
-        validators=[MaxValueValidator(datetime.date.today())])
+    )
 
     notes = models.TextField(
         max_length=500,

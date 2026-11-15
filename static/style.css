@@ -868,7 +868,27 @@ button, input, textarea, select {
 .care-form-card { padding: 24px; }
 .care-form-card .section-heading { padding-bottom: 16px; border-bottom: 1px solid var(--line); }
 .form-leaf { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; background: #eef1e8; color: #7e9373; font-size: 17px; }
-.care-form select, .care-form input, .care-form textarea { width: 100%; min-height: 42px; padding: 10px 12px; border: 1px solid #e5e5dc; border-radius: 7px; outline: 0; background: #fffefa; color: #435247; font: 10px var(--sans); }
+.care-form select,
+.care-form input:not([type="checkbox"]),
+.care-form textarea {
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 12px;
+    border: 1px solid #e5e5dc;
+    border-radius: 7px;
+    outline: 0;
+    background: #fffefa;
+    color: #435247;
+    font: 10px var(--sans);
+}
+
+.care-form input[type="checkbox"] {
+    width: auto;
+    min-height: auto;
+    padding: 0;
+    margin-right: 8px;
+    vertical-align: middle;
+}
 .care-form textarea { min-height: 100px; resize: vertical; line-height: 1.6; }
 .care-form input:focus, .care-form select:focus, .care-form textarea:focus { border-color: #9caf94; box-shadow: 0 0 0 3px rgba(130,146,123,.12); }
 .care-form input::placeholder, .care-form textarea::placeholder { color: #b2b2a8; }
@@ -905,10 +925,7 @@ button, input, textarea, select {
 .collection-meta { display: flex; gap: 9px; margin: 18px 0; color: #899184; font-size: 9px; }
 .collection-plant-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
 .collection-plant-grid .plant-photo { height: 175px; }
-.photo-monstera { background-image: url("https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=900&q=85"); }
-.photo-fiddle { background-image: url("https://images.unsplash.com/photo-1509423350716-97f9360b4e09?auto=format&fit=crop&w=900&q=85"); }
-.photo-pilea { background-image: url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=85"); }
-.photo-snake { background-image: url("https://images.unsplash.com/photo-1593691509543-c55fb32e5cee?auto=format&fit=crop&w=900&q=85"); }
+
 
 @media (max-width: 850px) {
     .collection-hero { grid-template-columns: 1fr 1fr; gap: 20px; }

@@ -16,7 +16,9 @@
             </div>
         </form>
         <aside class="form-aside">
-            <a class="{{ plant.image_url }}"></a>
+            <a class="plant-photo" href="{% url 'plants:detail' plant.pk %}">
+                        <img src="{{ plant.image_url }}" alt="{{ plant.scientific_name }}">
+                    </a>
             <div class="form-aside-copy"><span class="note-sprout">✳</span>
                 <h2>Growing at its own pace.</h2>
                 <p>Your {{ plant.scientific_name }} is thriving. Keep rotating it every so often to help each leaf catch the light.</p>

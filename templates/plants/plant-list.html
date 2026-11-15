@@ -25,8 +25,7 @@
     {% for plant in plants %}
         <article class="plant-card"><a class="plant-photo" href="{% url 'plants:detail' plant.pk %}">
             <img src="{{ plant.image_url }}" alt="{{ plant.scientific_name }}">
-            <span
-                class="photo-badge">THRIVING</span></a>
+            </a>
             <div class="plant-card-body">
                 <div><h3>{{ plant.scientific_name }}</h3>
                     <p>{{ plant.location }} · 2 years</p></div>

@@ -7,9 +7,8 @@
         <section class="detail-layout">
             <div class="detail-photo">
                 <img src="{{ plant.image_url }}" alt="{{ plant.scientific_name }}">
-                <span class="photo-badge">THRIVING</span>
             </div>
-            <div class="detail-copy"><p class="eyebrow">TROPICAL · ARACEAE</p>
+            <div class="detail-copy">
                 <h1>{{ plant.scientific_name }}<span class="heading-period">.</span></h1>
                 <p class="detail-description"> {{ plant.description }}</p>
                 <div class="detail-actions"><a class="button button-primary" href="{% url 'plants:edit' plant.pk %}">✎ Edit plant</a><a
@@ -20,7 +19,7 @@
                     <div><span>WATERING</span><strong>Every {{ plant.watering_interval }} days</strong></div>
                     <div><span>LIGHT</span><strong>{{ plant.light_requirement }}</strong></div>
                     <div><span>DIFFICULTY</span><strong>{{ plant.difficulty }}</strong></div>
-                    <div><span>PRICE</span><strong>{{ plant.price }}</strong></div>
+                    <div><span>PRICE</span><strong>{{ plant.price }} euro</strong></div>
                 </div>
             </div>
         </section>
@@ -31,19 +30,11 @@
                         <h2>Care guide</h2></div>
                 </div>
                 <div class="guide-row"><span class="guide-icon">◉</span>
-                    <div><strong>Water</strong>
-                        <p>Let the top 2 inches of soil dry between waterings. Give it a thorough drink, then let excess
-                            water drain.</p></div>
+                    <div><strong>Water</strong></div>
                     <span class="guide-frequency">Every {{ plant.watering_interval }} days</span></div>
                 <div class="guide-row"><span class="guide-icon">☼</span>
-                    <div><strong>Light</strong>
-                        <p>Place near a bright window where the leaves enjoy plenty of soft, filtered light.</p></div>
+                    <div><strong>Light</strong></div>
                     <span class="guide-frequency">{{ plant.light_requirement }}</span></div>
-                <div class="guide-row"><span class="guide-icon">✳</span>
-                    <div><strong>Humidity</strong>
-                        <p>This tropical beauty appreciates a little extra humidity. Mist occasionally or group with
-                            other plants.</p></div>
-                    <span class="guide-frequency">Moderate-high</span></div>
             </section>
             <section class="panel" id="care-logs">
                 <div class="section-heading">

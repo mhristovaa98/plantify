@@ -48,19 +48,28 @@
                     class="quote-leaf">✳</span></section>
         <section class="panel collection-mini" id="collections">
             <div class="section-heading">
-                <div><p class="eyebrow">CURATED BY YOU</p>
+                <div><p class="eyebrow">CREATED BY YOU</p>
                     <h2>Collections</h2></div>
-                <a href="#collections" class="text-link">See all ↗</a></div>
+                <a href="{% url 'collections:list' %}" class="text-link">See all ↗</a></div>
             <div class="collection-row">
-                <div class="collection-thumbs"><img
-                        src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=100&q=80"
-                        alt="Sunlit green leaves"><img
-                        src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=100&q=80"
-                        alt="Potted houseplant"><img
-                        src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=100&q=80"
-                        alt="Tropical plant leaves"></div>
-                <span><strong>Low light loves</strong><small>6 plants</small></span><span
-                    class="row-arrow">→</span></div>
+
+                {% for collection in collections %}
+
+                <div class="collection-thumbs">
+                    {% for plant in collection.plants.all %}
+                        <img src="{{ plant.image_url }}" alt="{{ plant.scientific_name }}">
+                    {% endfor %}
+                </div>
+
+                <span><strong>{{ collection.name}}</strong><small>{{ collection.plants.count }} plants</small></span><span
+                    class="row-arrow">→</span>
+
+                    {% empty %}
+                        <p>0 Collections Created</p>
+
+                {% endfor %}
+
+            </div>
         </section>
     </aside>
 </div>

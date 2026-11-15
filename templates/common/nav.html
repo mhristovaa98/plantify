@@ -1,9 +1,8 @@
 <aside class="sidebar">
-    <a class="brand" href="{% url 'dashboard:home' %}"><span class="brand-mark">p</span><span>plantify<span
+    <a class="brand" href="{% url 'dashboard:home' %}"><span class="brand-mark">P</span><span>PLANTify<span
             class="brand-dot">.</span><small>YOUR PLANT JOURNAL</small></span></a>
-    <p class="nav-label">WORKSPACE</p>
     <nav class="main-nav" aria-label="Main navigation">
-        <a class="nav-link active" href="{% url 'dashboard:home' %}"><span class="nav-icon">⌂</span>Dashboard</a>
+        <a class="nav-link active" href="{% url 'dashboard:home' %}"><span class="nav-icon">⌂</span>Home</a>
         <a class="nav-link" href="{% url 'plants:list' %}"><span class="nav-icon">♧</span>Plants<span
                 class="nav-count">{{ total_plants }}</span></a>
         <a class="nav-link" href="{% url 'cares:list' %}"><span class="nav-icon">◷</span>Care Logs</a>
