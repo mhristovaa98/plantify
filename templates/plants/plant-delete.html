@@ -1,12 +1,10 @@
 {% extends 'common/base.html' %}
 
-{% block title %} Delete Plants {% endblock %}
 
 {% block content %}
     <section class="confirm-wrap">
         <div class="confirm-card panel">
-            <div class="confirm-plant-image photo-monstera"><span class="photo-badge">THRIVING</span></div>
-            <div class="confirm-copy"><span class="confirm-icon">↗</span>
+            <div class="confirm-copy">
                 <p class="eyebrow">A CHANGE OF SEASONS</p>
                 <h1>Parting with a plant<span class="heading-period">?</span></h1>
                 <p>You’re about to remove <strong>{{ plant.scientific_name }}</strong> from your garden. Your care history

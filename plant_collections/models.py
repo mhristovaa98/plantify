@@ -20,6 +20,7 @@ class Collection(models.Model):
 
     plants = models.ManyToManyField(
         'plants.Plant',
+        blank=True,
     )
 
     def __str__(self):
