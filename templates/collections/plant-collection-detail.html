@@ -1,11 +1,12 @@
 {% extends 'common/base.html' %}
+{% load static %}
 
 {% block title %} Plants Collections {% endblock %}
 
 {% block content %}
         <a class="back-link" href="{% url 'collections:list' %}">← All collections</a>
         <section class="collection-hero">
-            <div class="collection-hero-image cover-lowlight"><span class="cover-count">{{ collection.plants.count }} PLANTS</span></div>
+            <div class="collection-hero-image" style="background-image: url('{{ collection.background_image }}')"><span class="cover-count">{{ collection.plants.count }} PLANTS</span></div>
             <div class="collection-hero-copy">
                 <h1>{{ collection.name }}<span class="heading-period">.</span></h1>
                 <p>{{ collection.description }}</p>

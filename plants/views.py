@@ -2,7 +2,7 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 
 from cares.models import CareLog
-from plants.forms import PlantCreateForm, PlantEditForm, PlantDeleteForm
+from plants.forms import PlantCreateForm, PlantEditForm
 from plants.models import Plant
 
 
@@ -12,6 +12,26 @@ class PlantListView(ListView):
     model = Plant
     template_name = 'plants/plant-list.html'
     context_object_name = 'plants'
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+
+        search = self.request.GET.get('search')
+        location = self.request.GET.get('location')
+
+        if search:
+            qs = qs.filter(scientific_name__icontains=search)
+
+        if location:
+            qs = qs.filter(location=location)
+
+        return qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['location_choices'] = Plant.LocationChoices.choices
+        return context
+
 
 
 class PlantCreateView(CreateView):

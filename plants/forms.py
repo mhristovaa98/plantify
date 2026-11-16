@@ -49,7 +49,3 @@ class PlantEditForm(PlantForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['scientific_name'].disabled = True
-
-
-class PlantDeleteForm(PlantForm):
-    ...

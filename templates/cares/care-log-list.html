@@ -8,48 +8,41 @@
                 <h1>Your care journal<span class="heading-period">.</span></h1>
                 <p class="intro">Every thoughtful moment helps your garden grow. Here’s your recent plant care.</p>
             </div>
-            <a class="button button-primary" href="care-log-create.html"><span>＋</span> Log care</a></section>
+            <a class="button button-primary" href="care-log-create.html"><span>＋</span> Log care</a>
+        </section>
         <section class="stats-grid">
-            <article class="stat-card"><span class="stat-icon">◷</span>
-                <div><span class="stat-number">18</span><span class="stat-caption">Care moments this month</span></div>
-                <span class="stat-trend">↗ 4 this week</span></article>
-            <article class="stat-card"><span class="stat-icon water-icon">◉</span>
-                <div><span class="stat-number">12</span><span class="stat-caption">Watering sessions</span></div>
-                <span class="stat-trend">A lovely rhythm</span></article>
-            <article class="stat-card"><span class="stat-icon bloom-icon">✿</span>
-                <div><span class="stat-number">6</span><span class="stat-caption">Plants nurtured</span></div>
-                <span class="stat-trend">All thriving</span></article>
+            <article class="stat-card"><span class="stat-icon water-icon">💧</span>
+                <div><span class="stat-number">{{ watering_count }}</span><span class="stat-caption">Plants Watered</span></div>
+            </article>
+            <article class="stat-card"><span class="stat-icon water-icon">🧴</span>
+                <div><span class="stat-number">{{ fertilizing_count }}</span><span class="stat-caption">Plants Fertilized</span></div>
+            </article>
+            <article class="stat-card"><span class="stat-icon water-icon">🪴</span>
+                <div><span class="stat-number">{{ repotting_count }}</span><span class="stat-caption">Plants Repotted</span></div>
+            </article>
+             <article class="stat-card"><span class="stat-icon water-icon">✂️</span>
+                <div><span class="stat-number">{{ pruning_count }}</span><span class="stat-caption">Plants Pruned</span></div>
+            </article>
         </section>
         <section class="panel journal-panel">
             <div class="section-heading">
                 <div><p class="eyebrow">YOUR GARDEN, DAY BY DAY</p>
                     <h2>Recent care</h2></div>
-                <span class="journal-range">MAY 2024</span></div>
-            <div class="journal-list">
-                <article class="journal-entry"><span
-                        class="journal-date"><strong>20</strong><small>MAY</small></span><span
-                        class="journal-symbol">◉</span>
-                    <div class="journal-copy"><h3>Watered Monstera Deliciosa</h3>
-                        <p>Living room · Soil was dry on top</p></div>
-                    <span class="journal-time">9:12 AM</span></article>
-                <article class="journal-entry"><span
-                        class="journal-date"><strong>19</strong><small>MAY</small></span><span
-                        class="journal-symbol journal-sun">☼</span>
-                    <div class="journal-copy"><h3>Rotated Fiddle Leaf Fig</h3>
-                        <p>Reading nook · Turned toward the morning light</p></div>
-                    <span class="journal-time">8:45 AM</span></article>
-                <article class="journal-entry"><span
-                        class="journal-date"><strong>18</strong><small>MAY</small></span><span
-                        class="journal-symbol journal-mist">❋</span>
-                    <div class="journal-copy"><h3>Misted Boston Fern</h3>
-                        <p>Bathroom · A little extra humidity</p></div>
-                    <span class="journal-time">10:30 AM</span></article>
-                <article class="journal-entry"><span
-                        class="journal-date"><strong>16</strong><small>MAY</small></span><span
-                        class="journal-symbol">◉</span>
-                    <div class="journal-copy"><h3>Watered Snake Plant</h3>
-                        <p>Bedroom · Half a cup, nice and slow</p></div>
-                    <span class="journal-time">6:20 PM</span></article>
+
             </div>
+                <div class="journal-list">
+                    {% for care in carelog_list %}
+                        <article class="journal-entry">
+                            <span class="journal-range">{{ care.plant.scientific_name }}</span>
+                            <span class="journal-date"><strong>{{ care.date_performed|date:'d' }}</strong><small>{{ care.date_performed|date:'M' }}</small></span>
+                            <span class="journal-symbol">◉</span>
+                            <div class="journal-copy"><h3>{{ care.notes }}</h3>
+                                <p>{{ care.plant.location }} </p></div>
+                            <span class="journal-time">Time spent - {{ care.performed_minutes }}min.</span>
+                        </article>
+                    {% empty %}
+                        <p>No plants cares!</p>
+                    {% endfor %}
+                </div>
             <a class="button button-outline journal-more" href="#">View earlier entries <span>→</span></a></section>
  {% endblock %}

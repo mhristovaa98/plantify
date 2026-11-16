@@ -15,7 +15,7 @@
 
         <section class="collection-grid"><a class="collection-card" href="{% url 'collections:detail' collection.pk %}">
 
-            <div class="collection-cover"><span class="cover-count">{{ collection.plants.count }} PLANTS</span></div>
+            <div class="collection-cover" style="background-image: url('{{ collection.background_image }}')"><span class="cover-count">{{ collection.plants.count }} PLANTS</span></div>
             <div class="collection-card-body"><span class="collection-kicker">{{ collection.updated_at }}</span>
                 <h2>{{ collection.name }}</h2>
                 <p>{{ collection.description }}.</p>

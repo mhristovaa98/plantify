@@ -8,13 +8,14 @@ from plants.models import Plant
 class CollectionFormBase(forms.ModelForm):
     class Meta:
         model = Collection
-        fields = ['name', 'description', 'plants']
+        fields = ['name', 'background_image','description', 'plants']
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Name:'}),
             'description': forms.Textarea(attrs={
                 'placeholder': 'Description:',
                 'cols':10
             }),
+            'background_image': forms.URLInput(attrs={'placeholder': 'Enter URL here:'}),
             'plants': forms.CheckboxSelectMultiple(),
         }
 

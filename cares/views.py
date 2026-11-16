@@ -2,6 +2,7 @@ from django.urls import reverse
 from django.views.generic import CreateView, ListView
 
 from cares.forms import CareLogAddForm
+from cares.mixins import CareStatisticsMixin
 from cares.models import CareLog
 from plants.models import Plant
 
@@ -26,6 +27,6 @@ class CareLogAddView(CreateView):
         def get_success_url(self):
             return reverse('plants:detail', kwargs={'pk': self.object.plant.pk})
 
-class CareLogListView(ListView):
+class CareLogListView(CareStatisticsMixin,ListView):
     model = CareLog
     template_name = 'cares/care-log-list.html'
